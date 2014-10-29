@@ -1,0 +1,45 @@
+\documentclass{article}
+\usepackage{jdaghw}
+
+\newcommand{\hmwkTitle}{Example problem set}
+\newcommand{\hmwkDueDate}{1970-01-01}
+\newcommand{\hmwkClass}{BMES ???}
+\newcommand{\hmwkClassInstructor}{A. Teacher}
+\newcommand{\hmwkAuthorName}{J.D.A. Gilliland}
+\newcommand{\hmwkStudentID}{13462252}
+\newcommand{\hmwkClassTime}{Sometime} % Class/lecture time
+
+\begin{document}
+\maketitle
+
+\begin{multicols}{2}
+\section*{Problem 1}
+This is my work on problem 1.
+
+\section*{A sample code listing}
+For the code used to generate said plot, see
+listing \ref{lst:exer1}.
+
+\end{multicols}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{build/cobweb.png}
+  \caption{
+    Cobweb plots for problem 2.
+    The green line is the finite difference function $f(x_n)$, and the blue
+    line is the line $x=y$, or $x_n = x_{n+1}$.
+    For part a, we assume $r=0.5$.
+  }
+  \label{fig:cobweb}
+\end{figure}
+
+\begin{listing}[ht]
+   \begin{framed}
+    \input{build/code_sample.tex}
+    \caption{The code used.}
+    \label{lst:exer1}
+   \end{framed}
+\end{listing}
+
+\end{document}
