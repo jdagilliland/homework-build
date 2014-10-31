@@ -6,6 +6,8 @@
 \usepackage{cancel}
 \usepackage{amsfonts}
 \usepackage{tensor}
+% For easy equation numbering in unnumbered environments
+\newcommand\numberthis{\stepcounter{equation}\tag{\theequation}}
 
 % For flexible lists
 \usepackage{enumitem}
@@ -72,6 +74,12 @@
 \newcommand{\jhat}{\hat{\textbf{\j}}}
 \newcommand{\khat}{\hat{\textbf{\k}}}
 \renewcommand{\vec}{\boldsymbol}
+\newcommand{\vect}{\boldsymbol}
+
+% Make time based entries (mostly for notes)
+\newcommand{\timeentry}[2]{
+  \par \noindent #1: #2 \par
+}
 
 %%% For nice looking hw, from
 %%% https://gist.github.com/ltiao/9464922
