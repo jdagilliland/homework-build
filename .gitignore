@@ -16,9 +16,10 @@ ps00.pdf
 # Ignore scons generated stuff
 .sconsign.dblite
 
-# Ignore compiled files
+# Ignore compiled files and archives
 *.pyc
 .~lock*
+*.tar.gz
 
 # Ignore the build directory, where compiled files from the build are
 # placed.

@@ -22,22 +22,43 @@ env=Environment(BUILDERS = {
     'Plot': plotbuild,
     'Table': tablebuild,
     'Pyg': pygbuild,
-    })
+    },
+    TARFLAGS = '-czh',
+    )
 
 pygheaders = env.Command('build/pygstyle.tex','pygstyle.sh',
     'sh $SOURCE > $TARGET')
 
 # Look in standard directory ~/texmf for .sty files
 env['ENV']['TEXMFHOME'] = os.path.join(os.environ['HOME'],'texmf')
-ps00 = env.PDF(target='ps00.pdf', source='ps00.tex')
+
+# This needs to change with the chosen homework name
+main_base = 'ps00'
+
+# Build the main PDF
+main_pdfbuild = env.PDF(target=main_base+'.pdf', source=main_base+'.tex')
+
+# Build plot with a dependency on a separate module
 prob2_plot = env.Plot(target='build/cobweb.png',
         source='src/book_prob02.py')
 Depends(prob2_plot, ['src/cobweb.py'])
+
+# Build the code listing
 exer1_src = env.Pyg(
         target='build/code_sample.tex',
         source='src/code_sample.m',
         )
-Depends(ps00, [
+
+# Build the tar archive
+tarf = env.Tar(main_base+'.tar.gz', [
+    'build/',
+    'src/',
+    'jdaghw.sty',
+    main_base+'.tex',
+    'pygstyle.sh',
+    'SConstruct',
+    ])
+Depends(main_pdfbuild, [
     prob2_plot,
     exer1_src,
     ])
