@@ -62,3 +62,4 @@ Depends(main_pdfbuild, [
     prob2_plot,
     exer1_src,
     ])
+Default(main_pdfbuild)
