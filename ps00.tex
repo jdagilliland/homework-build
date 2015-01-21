@@ -42,4 +42,18 @@ listing \ref{lst:exer1}.
    \end{framed}
 \end{listing}
 
+
+\begin{table}
+  \csvloop{
+  file=src/data_numbers.csv,
+  head to column names,
+  before reading=\centering\sisetup{table-number-alignment=center},
+  tabular={lSS[table-format=2.2e1]},
+  table head=\toprule\textbf{Month} & \textbf{Dogs} & \textbf{Cats}\\\midrule,
+  command=\month & \dogs & \cats,
+  table foot=\bottomrule}
+  \caption{csvloop table.}
+  \label{tab:data-numbers-loop}
+\end{table}
+
 \end{document}
