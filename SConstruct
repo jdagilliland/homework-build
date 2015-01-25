@@ -44,10 +44,15 @@ prob2_plot = env.Plot(target='build/cobweb.png',
 Depends(prob2_plot, ['src/cobweb.py'])
 
 # Build the code listing
-exer1_src = env.Pyg(
-        target='build/code_sample.tex',
-        source='src/code_sample.m',
-        )
+def texname(matname):
+    base = matname.rpartition('.')[0]
+    return base + '.tex'
+lst_mat_name = [fname for fname in os.listdir('src')
+        if fname[-2:] == '.m']
+lst_mat_src = [env.Pyg(
+    target=os.path.join('build/', texname(matname)),
+    source=os.path.join('src/', matname),
+    ) for matname in lst_mat_name]
 
 # Build the tar archive
 tarf = env.Tar(main_base+'.tar.gz', [
@@ -60,6 +65,6 @@ tarf = env.Tar(main_base+'.tar.gz', [
     ])
 Depends(main_pdfbuild, [
     prob2_plot,
-    exer1_src,
+    lst_mat_src,
     ])
 Default(main_pdfbuild)
