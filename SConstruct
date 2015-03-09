@@ -18,10 +18,16 @@ pygbuild = Builder(
             -o $TARGET $SOURCE',
         )
 
+matpygbuild = Builder(
+    action='pygmentize -O linenos=True,linenostep=5 -l matlab \
+            -o $TARGET $SOURCE',
+        )
+
 env=Environment(BUILDERS = {
     'Plot': plotbuild,
     'Table': tablebuild,
     'Pyg': pygbuild,
+    'MatPyg': matpygbuild,
     },
     TARFLAGS = '-czh',
     )
@@ -49,7 +55,7 @@ def texname(matname):
     return base + '.tex'
 lst_mat_name = [fname for fname in os.listdir('src')
         if fname[-2:] == '.m']
-lst_mat_src = [env.Pyg(
+lst_mat_src = [env.MatPyg(
     target=os.path.join('build/', texname(matname)),
     source=os.path.join('src/', matname),
     ) for matname in lst_mat_name]
