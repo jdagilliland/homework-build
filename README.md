@@ -1,11 +1,11 @@
 This is a skeleton homework project using:
-- [LaTeX](www.latex-project.org)
+- [LaTeX](http://www.latex-project.org)
   - tikz (coming soon)
-- [python](www.python.org)
-  - [numpy](www.numpy.org)
-  - [matplotlib](matplotlib.org)
-- [pygments](pygments.org)
-- [SCons](www.scons.org)
+- [python](http://www.python.org)
+  - [numpy](http://www.numpy.org)
+  - [matplotlib](http://matplotlib.org)
+- [pygments](http://pygments.org)
+- [SCons](http://www.scons.org)
 
 It incorporates a [LaTeX style file](jdaghw.sty) that provides many of the
 useful packages
