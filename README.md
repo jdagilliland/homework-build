@@ -1,9 +1,9 @@
 This is a skeleton homework project using:
 - LaTeX
--- tikz (coming soon)
+  - tikz (coming soon)
 - python
--- numpy
--- matplotlib
+  - numpy
+  - matplotlib
 - pygments
 - SCons
 
